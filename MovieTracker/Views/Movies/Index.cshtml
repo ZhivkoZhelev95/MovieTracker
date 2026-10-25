@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MovieTracker.Models.Movie>
+
+@{
+    ViewData["Title"] = "My Movies";
+}
+
+<h1>My Movie Collection</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>Director</th>
+            <th>Rating</th>
+            <th>Watched</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.ReleaseYear</td>
+                <td>@movie.Genre.Name</td>
+                <td>@movie.Director.Name</td>
+                <td>@movie.Rating</td>
+                <td>@(movie.IsWatched ? "Yes" : "No")</td>
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@movie.Id"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@movie.Id"
+                       class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
