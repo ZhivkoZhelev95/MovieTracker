@@ -1,8 +1,88 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center py-5">
+
+    <h1 class="display-3 fw-bold mb-3">
+        🎬 Welcome to <span class="text-danger">MovieTracker</span>
+    </h1>
+
+    <p class="lead text-secondary mb-4">
+        Your personal space to organize, rate, and track your favorite movies.
+    </p>
+
+    <p class="fs-5 mb-4">
+        Build your own movie collection, discover what you've watched,
+        and keep track of the movies you still want to see.
+    </p>
+
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+        <a asp-controller="Movies"
+           asp-action="Index"
+           class="btn btn-danger btn-lg px-4">
+            🎞️ Explore My Movies
+        </a>
+
+        <a asp-controller="Movies"
+           asp-action="Create"
+           class="btn btn-outline-light btn-lg px-4">
+            + Add New Movie
+        </a>
+
+    </div>
+
+</div>
+
+<div class="row g-4 mt-4 mb-5">
+
+    <div class="col-md-4">
+        <div class="card bg-black text-light border-secondary h-100 text-center p-4">
+
+            <div class="card-body">
+                <h2 class="mb-3">🎥</h2>
+                <h4 class="fw-bold">Organize Movies</h4>
+
+                <p class="text-secondary">
+                    Keep all your favorite movies organized
+                    in one personal collection.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card bg-black text-light border-secondary h-100 text-center p-4">
+
+            <div class="card-body">
+                <h2 class="mb-3">⭐</h2>
+                <h4 class="fw-bold">Rate Your Favorites</h4>
+
+                <p class="text-secondary">
+                    Give movies a rating and remember
+                    which ones you enjoyed the most.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card bg-black text-light border-secondary h-100 text-center p-4">
+
+            <div class="card-body">
+                <h2 class="mb-3">✅</h2>
+                <h4 class="fw-bold">Track Your Watchlist</h4>
+
+                <p class="text-secondary">
+                    Mark movies as watched or keep them
+                    on your list for later.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
 </div>

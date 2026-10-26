@@ -40,6 +40,128 @@ namespace MovieTracker.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Directors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Country = "",
+                            Name = "Christopher Nolan"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Country = "",
+                            Name = "Steven Spielberg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Country = "",
+                            Name = "Quentin Tarantino"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Country = "",
+                            Name = "Martin Scorsese"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Country = "",
+                            Name = "James Cameron"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Country = "",
+                            Name = "Greta Gerwig"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Country = "",
+                            Name = "Francis Ford Coppola"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Country = "",
+                            Name = "Stanley Kubrick"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Country = "",
+                            Name = "Alfred Hitchcock"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Country = "",
+                            Name = "Ridley Scott"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Country = "",
+                            Name = "David Fincher"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Country = "",
+                            Name = "Peter Jackson"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Country = "",
+                            Name = "Denis Villeneuve"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Country = "",
+                            Name = "Wes Anderson"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Country = "",
+                            Name = "Tim Burton"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Country = "",
+                            Name = "Guillermo del Toro"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Country = "",
+                            Name = "George Lucas"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Country = "",
+                            Name = "Bong Joon-ho"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Country = "",
+                            Name = "Hayao Miyazaki"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Country = "",
+                            Name = "Other"
+                        });
                 });
 
             modelBuilder.Entity("MovieTracker.Models.Genre", b =>
@@ -61,6 +183,68 @@ namespace MovieTracker.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "",
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "",
+                            Name = "Comedy"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "",
+                            Name = "Drama"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "",
+                            Name = "Horror"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "",
+                            Name = "Science Fiction"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "",
+                            Name = "Thriller"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Description = "",
+                            Name = "Animation"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Description = "",
+                            Name = "Romance"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Description = "",
+                            Name = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Description = "",
+                            Name = "Other"
+                        });
                 });
 
             modelBuilder.Entity("MovieTracker.Models.Movie", b =>
@@ -73,7 +257,8 @@ namespace MovieTracker.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<int>("DirectorId")
                         .HasColumnType("int");
@@ -88,14 +273,16 @@ namespace MovieTracker.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Rating")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(4, 2)
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<int>("ReleaseYear")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 

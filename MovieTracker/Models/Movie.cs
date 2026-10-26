@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace MovieTracker.Models
 {
@@ -23,6 +24,7 @@ namespace MovieTracker.Models
 
         [Range(typeof(decimal), "0", "10",
             ErrorMessage = "Rating must be between 0 and 10.")]
+        [Precision(4, 2)]
         public decimal Rating { get; set; }
 
         [Url(ErrorMessage = "Please enter a valid image URL.")]
