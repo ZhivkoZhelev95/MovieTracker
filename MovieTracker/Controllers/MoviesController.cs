@@ -124,10 +124,18 @@ namespace MovieTracker.Controllers
             }
 
             ViewBag.Genres = new SelectList(
-                await _context.Genres.ToListAsync(), "Id", "Name", movie.GenreId);
+                await _context.Genres.ToListAsync(),
+                "Id",
+                "Name",
+                movie.GenreId
+);
 
             ViewBag.Directors = new SelectList(
-                await _context.Directors.ToListAsync(), "Id", "Name", movie.DirectorId);
+                await _context.Directors.ToListAsync(),
+                "Id",
+                "Name",
+                movie.DirectorId
+            );
 
             return View(movie);
         }

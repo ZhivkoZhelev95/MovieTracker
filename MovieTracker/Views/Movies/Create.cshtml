@@ -7,52 +7,74 @@
 <h1>Add New Movie</h1>
 
 <form asp-action="Create" method="post">
-    
-    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="mb-3">
         <label asp-for="Title" class="form-label"></label>
         <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="ReleaseYear" class="form-label"></label>
         <input asp-for="ReleaseYear" class="form-control" />
+        <span asp-validation-for="ReleaseYear" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="Rating" class="form-label"></label>
         <input asp-for="Rating" class="form-control" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="Description" class="form-label"></label>
         <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="ImageUrl" class="form-label"></label>
         <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
     </div>
 
     <div class="form-check mb-3">
         <input asp-for="IsWatched" class="form-check-input" />
         <label asp-for="IsWatched" class="form-check-label"></label>
     </div>
+
     <div class="mb-3">
         <label asp-for="GenreId" class="form-label">Genre</label>
-        <select asp-for="GenreId" asp-items="ViewBag.Genres" class="form-select">
+        <select asp-for="GenreId"
+                asp-items="ViewBag.Genres"
+                class="form-select">
             <option value="">-- Select Genre --</option>
         </select>
+        <span asp-validation-for="GenreId" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="DirectorId" class="form-label">Director</label>
-        <select asp-for="DirectorId" asp-items="ViewBag.Directors" class="form-select">
+        <select asp-for="DirectorId"
+                asp-items="ViewBag.Directors"
+                class="form-select">
             <option value="">-- Select Director --</option>
         </select>
+        <span asp-validation-for="DirectorId" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Add Movie</button>
+    <button type="submit" class="btn btn-primary">
+        Add Movie
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancel
+    </a>
 
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
