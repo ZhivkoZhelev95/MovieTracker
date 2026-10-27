@@ -171,6 +171,21 @@ namespace MovieTracker.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var movie = await _context.Movies
+                .Include(m => m.Genre)
+                .Include(m => m.Director)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return View(movie);
+        }
 
     }
 }

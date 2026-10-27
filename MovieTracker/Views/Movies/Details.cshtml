@@ -1,0 +1,52 @@
+﻿@model MovieTracker.Models.Movie
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Movie Details</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="@Model.ImageUrl"
+                 alt="@Model.Title"
+                 class="img-fluid rounded shadow" />
+        </div>
+
+        <div class="col-md-8">
+            <h3>@Model.Title</h3>
+
+            <p><strong>Release Year:</strong> @Model.ReleaseYear</p>
+
+            <p><strong>Genre:</strong> @Model.Genre?.Name</p>
+
+            <p><strong>Director:</strong> @Model.Director?.Name</p>
+
+            <p><strong>Rating:</strong> ⭐ @Model.Rating / 10</p>
+
+            <p>
+                <strong>Status:</strong>
+                @(Model.IsWatched ? "Watched" : "Want to Watch")
+            </p>
+
+            <h5>Description</h5>
+            <p>@Model.Description</p>
+
+            <div class="mt-4">
+                <a asp-controller="Movies"
+                   asp-action="Edit"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-warning">
+                    Edit Movie
+                </a>
+
+                <a asp-controller="Movies"
+                   asp-action="Index"
+                   class="btn btn-secondary">
+                    Back to Movies
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

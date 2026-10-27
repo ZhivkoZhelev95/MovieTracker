@@ -30,11 +30,11 @@
 }
 else
 {
-    <div class="row g-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 g-3">
 
         @foreach (var movie in Model)
         {
-            <div class="col-md-6 col-lg-4">
+            <div class="col">
 
                 <div class="card bg-black text-light border-secondary h-100 shadow">
 
@@ -43,32 +43,32 @@ else
                         <img src="@movie.ImageUrl"
                              class="card-img-top"
                              alt="@movie.Title"
-                             style="height: 350px; object-fit: cover;" />
+                             style="height: 250px; object-fit: cover;" />
                     }
                     else
                     {
                         <div class="bg-secondary d-flex align-items-center justify-content-center"
-                             style="height: 350px;">
+                             style="height: 250px;">
                             <span class="fs-1">🎬</span>
                         </div>
                     }
 
                     <div class="card-body">
 
-                        <h4 class="card-title fw-bold">
+                        <h5 class="card-title fw-bold">
                             @movie.Title
-                        </h4>
+                        </h5>
 
                         <p class="text-secondary mb-2">
                             @movie.ReleaseYear
                         </p>
 
                         <p class="mb-2">
-                            <strong>Genre:</strong> @movie.Genre.Name
+                            <strong>Genre:</strong> @movie.Genre?.Name
                         </p>
 
                         <p class="mb-2">
-                            <strong>Director:</strong> @movie.Director.Name
+                            <strong>Director:</strong> @movie.Director?.Name
                         </p>
 
                         <p class="mb-2">
@@ -90,18 +90,24 @@ else
 
                     </div>
 
-                    <div class="card-footer bg-black border-secondary d-flex gap-2">
+                    <div class="card-footer bg-black border-secondary d-flex justify-content-center gap-1 p-2">
+
+                        <a asp-action="Details"
+                           asp-route-id="@movie.Id"
+                           class="btn btn-outline-info btn-sm flex-fill">
+                            Details
+                        </a>
 
                         <a asp-action="Edit"
                            asp-route-id="@movie.Id"
-                           class="btn btn-outline-warning flex-fill">
-                            ✏️ Edit
+                           class="btn btn-outline-warning btn-sm flex-fill">
+                            Edit
                         </a>
 
                         <a asp-action="Delete"
                            asp-route-id="@movie.Id"
-                           class="btn btn-outline-danger flex-fill">
-                            🗑️ Delete
+                           class="btn btn-outline-danger btn-sm flex-fill">
+                            Delete
                         </a>
 
                     </div>
