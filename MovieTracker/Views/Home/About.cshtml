@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "About MovieTracker";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">🎬 About MovieTracker</h1>
+        <p class="text-secondary">
+            Your personal movie collection, all in one place.
+        </p>
+    </div>
+
+    <div class="card bg-black text-light border-secondary shadow p-4 mb-4">
+
+        <h3 class="text-danger">What is MovieTracker?</h3>
+
+        <p>
+            MovieTracker is a web application created as part of
+            the ASP.NET Fundamentals course at SoftUni.
+        </p>
+
+        <p>
+            The application allows users to manage their personal
+            movie collection, keep track of movies they have watched,
+            and organize movies they want to watch in the future.
+        </p>
+
+        <h3 class="text-danger mt-4">Features</h3>
+
+        <ul>
+            <li>View your movie collection</li>
+            <li>Add new movies</li>
+            <li>Edit existing movie information</li>
+            <li>Delete movies</li>
+            <li>View detailed information about each movie</li>
+            <li>Rate movies and track watched status</li>
+        </ul>
+
+        <h3 class="text-danger mt-4">Technologies Used</h3>
+
+        <p>
+            MovieTracker was developed using ASP.NET Core MVC,
+            C#, Entity Framework Core, SQL Server,
+            Razor Views, HTML, CSS, and Bootstrap.
+        </p>
+
+    </div>
+
+    <div class="text-center">
+        <a asp-controller="Movies"
+           asp-action="Index"
+           class="btn btn-danger">
+            🎬 Explore Movies
+        </a>
+    </div>
+
+</div>
